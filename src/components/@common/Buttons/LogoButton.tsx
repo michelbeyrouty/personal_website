@@ -11,7 +11,7 @@ export default function LogoButton({ text }: LogoButtonProps) {
       <span>&nbsp;{text}&nbsp;</span>
       <span
         aria-hidden="true"
-        className="absolute text-brand-red w-0 inset-0 border-r-[4px] border-r-brand-red animate-pulse group-hover:animate-none overflow-hidden transition-all duration-500 [-webkit-text-stroke:1px_theme(colors.brand-red)] group-hover:w-full group-hover:drop-shadow-[0_0_23px_theme(colors.brand-red)]"
+        className="absolute text-brand-red w-0 inset-0 border-r border-r-brand-red animate-pulse group-hover:animate-none overflow-hidden transition-all duration-500 [-webkit-text-stroke:1px_theme(colors.brand-red)] group-hover:w-full group-hover:drop-shadow-[0_0_23px_theme(colors.brand-red)]"
       >
         &nbsp;{text}&nbsp;
       </span>
