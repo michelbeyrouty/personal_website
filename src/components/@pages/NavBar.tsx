@@ -3,8 +3,24 @@
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import LogoButton from "@common/Buttons/LogoButton";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSection = document.getElementById("hero");
+      if (heroSection) {
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+        setIsScrolled(window.scrollY > heroBottom - 100);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const navLinks = [
     {
       link: "/#about",
@@ -32,8 +48,25 @@ export default function Navbar() {
     },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSection = document.getElementById("hero");
+      if (heroSection) {
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+        setIsScrolled(window.scrollY > heroBottom - 100);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="flex flex-row justify-between px-6 py-5 w-full items-center fixed top-0 z-20 bg-brand-black">
+    <nav
+      className={`flex flex-row justify-between px-6 py-5 w-full items-center fixed top-0 z-20 transition-all duration-300 ${
+        isScrolled ? "bg-brand-black/95 backdrop-blur-sm" : "bg-transparent"
+      }`}
+    >
       <Link href="/">
         <LogoButton text="Michel_Beyrouty" />
       </Link>
@@ -44,6 +77,10 @@ export default function Navbar() {
             <a
               href={nav.link}
               className="text-lg font-medium text-white/60 hover:text-brand-red transition-colors duration-300"
+              target={nav.link.startsWith("http") ? "_blank" : undefined}
+              rel={
+                nav.link.startsWith("http") ? "noopener noreferrer" : undefined
+              }
             >
               {nav.title}
             </a>
