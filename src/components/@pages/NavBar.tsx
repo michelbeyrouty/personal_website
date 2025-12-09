@@ -48,23 +48,12 @@ export default function Navbar() {
     },
   ];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const heroSection = document.getElementById("hero");
-      if (heroSection) {
-        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-        setIsScrolled(window.scrollY > heroBottom - 100);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <nav
-      className={`flex flex-row justify-between px-6 py-5 w-full items-center fixed top-0 z-20 transition-all duration-300 ${
-        isScrolled ? "bg-brand-black/95 backdrop-blur-sm" : "bg-transparent"
+      className={`flex flex-row justify-between px-6 py-5 w-full items-center fixed top-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-black/80 backdrop-blur-md border-b border-white/10 shadow-lg shadow-black/25"
+          : "bg-transparent"
       }`}
     >
       <Link href="/">
@@ -76,7 +65,7 @@ export default function Navbar() {
           <li key={nav.link}>
             <a
               href={nav.link}
-              className="text-lg font-medium text-white/60 hover:text-brand-red transition-colors duration-300"
+              className="text-lg font-medium text-white/60 hover:text-blue-400 transition-colors duration-300"
               target={nav.link.startsWith("http") ? "_blank" : undefined}
               rel={
                 nav.link.startsWith("http") ? "noopener noreferrer" : undefined

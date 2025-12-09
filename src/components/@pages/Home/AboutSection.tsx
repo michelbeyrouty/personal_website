@@ -1,21 +1,18 @@
 export default function AboutSection() {
   return (
-    <section
-      id="about"
-      className="min-h-screen py-20 px-6 bg-gray-900 text-white"
-    >
+    <section id="about" className="min-h-screen py-20 px-6 text-white">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl font-bold mb-8 text-center">
-          About <span className="text-brand-red">Me</span>
+          About <span className="text-blue-600">Me</span>
         </h2>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <p className="text-lg text-gray-300">
+            <p className="text-lg text-gray-600">
               I'm a passionate full-stack developer with expertise in modern web
               technologies. I love building scalable applications and solving
               complex problems.
             </p>
-            <p className="text-lg text-gray-300">
+            <p className="text-lg text-gray-600">
               With experience in React, Next.js, Node.js, and more, I create
               solutions that are both functional and beautiful.
             </p>
@@ -30,7 +27,7 @@ export default function AboutSection() {
               ].map((tech) => (
                 <span
                   key={tech}
-                  className="bg-brand-red/20 text-brand-red px-3 py-1 rounded-full text-sm"
+                  className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm"
                 >
                   {tech}
                 </span>

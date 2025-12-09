@@ -1,0 +1,108 @@
+"use client";
+
+import { useRef, useMemo } from "react";
+import { useFrame } from "@react-three/fiber";
+import { Points, PointMaterial } from "@react-three/drei";
+import * as THREE from "three";
+
+export default function SpaceUniverse({
+  scrollProgress,
+}: {
+  scrollProgress: number;
+}) {
+  const ref = useRef<THREE.Points>(null);
+
+  const [positions, colors, sizes] = useMemo(() => {
+    const count = 2000;
+    const positions = new Float32Array(count * 3);
+    const colors = new Float32Array(count * 3);
+    const sizes = new Float32Array(count);
+
+    // Define star color palettes
+    const starTypes = [
+      { r: 1.0, g: 1.0, b: 1.0 }, // White
+      { r: 1.0, g: 0.9, b: 0.7 }, // Warm white
+      { r: 0.9, g: 0.9, b: 1.0 }, // Blue-white
+      { r: 1.0, g: 0.8, b: 0.6 }, // Yellow-orange
+      { r: 0.8, g: 0.8, b: 1.0 }, // Blue
+      { r: 1.0, g: 0.6, b: 0.4 }, // Orange-red
+    ];
+
+    for (let i = 0; i < count; i++) {
+      const radius = Math.random() * 30 + 10;
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.random() * Math.PI;
+
+      positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
+      positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+      positions[i * 3 + 2] = radius * Math.cos(phi);
+
+      // Random star type and intensity
+      const starType = starTypes[Math.floor(Math.random() * starTypes.length)];
+      const intensity = Math.random() * 0.6 + 0.4;
+      const brightness = Math.random() * 0.8 + 0.2;
+
+      colors[i * 3] = starType.r * intensity * brightness;
+      colors[i * 3 + 1] = starType.g * intensity * brightness;
+      colors[i * 3 + 2] = starType.b * intensity * brightness;
+
+      // Varied star sizes (some bright, some dim)
+      sizes[i] = Math.random() * 1.3 + 0.2;
+    }
+
+    return [positions, colors, sizes];
+  }, []);
+
+  useFrame(({ clock }) => {
+    if (!ref.current) return;
+
+    // Gentle rotation for subtle movement
+    ref.current.rotation.x += 0.0003;
+    ref.current.rotation.y += 0.0005;
+
+    // Twinkling effect by modifying the material opacity
+    const time = clock.getElapsedTime();
+    if (ref.current.material && !Array.isArray(ref.current.material)) {
+      // Subtle pulsing opacity for twinkling effect
+      (ref.current.material as THREE.PointsMaterial).opacity =
+        0.8 + Math.sin(time * 2) * 0.2;
+    }
+
+    // Stop expanding after hero section (when scrollProgress reaches 1)
+    const maxScale = 15;
+    const scale =
+      scrollProgress >= 1 ? maxScale : 0.3 + scrollProgress * (maxScale - 0.3);
+
+    ref.current.scale.setScalar(scale);
+
+    // Continue moving the universe position based on scroll
+    const maxZPosition = 100;
+    const zPosition =
+      scrollProgress >= 1
+        ? maxZPosition
+        : -50 + scrollProgress * (maxZPosition + 50);
+
+    // Position universe below text initially, then move based on scroll
+    const baseYPosition = -15; // Start further below the text
+    const yPosition = baseYPosition + scrollProgress * 10; // Move up slightly as user scrolls
+
+    ref.current.position.set(0, yPosition, zPosition);
+  });
+
+  return (
+    <Points ref={ref} positions={positions} stride={3} frustumCulled={false}>
+      <PointMaterial
+        transparent
+        vertexColors
+        size={1.5}
+        sizeAttenuation
+        depthWrite={false}
+        alphaTest={0.01}
+        blending={THREE.AdditiveBlending}
+        toneMapped={false}
+      />
+      <bufferAttribute attach="geometry-attributes-color" args={[colors, 3]} />
+      <bufferAttribute attach="geometry-attributes-size" args={[sizes, 1]} />
+    </Points>
+  );
+}
