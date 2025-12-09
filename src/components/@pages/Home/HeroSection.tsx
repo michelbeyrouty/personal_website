@@ -1,35 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useScrollProgress } from "../../../hooks/useScrollProgress";
 import { Canvas } from "@react-three/fiber";
 import { Preload } from "@react-three/drei";
 import { motion } from "framer-motion";
 import SpaceUniverse from "../../@common/3D/SpaceUniverse";
 
 export default function HeroSection() {
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const heroHeight = window.innerHeight * 1.5;
-      const progress = Math.min(window.pageYOffset / heroHeight, 1);
-      setScrollProgress(progress);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const contentOpacity =
-    scrollProgress > 0.3
-      ? 0
-      : scrollProgress > 0.2
-      ? (0.3 - scrollProgress) / 0.1
-      : 1;
+  const scrollProgress = useScrollProgress();
 
   return (
     <>
-      {/* Fixed Space Background for entire page */}
       <div className="fixed inset-0 z-0">
         <Canvas
           camera={{ position: [0, 0, 30], fov: 75 }}
@@ -44,10 +25,9 @@ export default function HeroSection() {
         id="hero"
         className="relative h-[150vh] bg-transparent text-white overflow-hidden z-10"
       >
-        {/* Content */}
         <motion.div
           className="fixed inset-0 z-20 flex items-start justify-center pt-40"
-          animate={{ opacity: contentOpacity }}
+          animate={{ opacity: scrollProgress > 0.2 ? 0 : 1 }}
         >
           <div className="max-w-7xl mx-auto px-6 text-center space-y-6">
             <motion.h1
