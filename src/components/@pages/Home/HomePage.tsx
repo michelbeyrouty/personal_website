@@ -1,16 +1,16 @@
 import HeroSection from "@pages/Home/HeroSection";
 import AboutSection from "@pages/Home/AboutSection";
-import WorkSection from "@pages/Home/WorkSection";
+import WorkExperienceSection from "@pages/Home/WorkExperienceSection";
 import CanvasUniverse from "@/components/@common/Canvas/CanvasUniverse";
 
 export default function HomePage() {
   return (
-    <div>
+    <div className="text-white">
       <CanvasUniverse />
 
       <HeroSection />
       <AboutSection />
-      <WorkSection />
+      <WorkExperienceSection />
     </div>
   );
 }

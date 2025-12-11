@@ -18,7 +18,7 @@ export default function SpaceUniverse({
     const colors = new Float32Array(count * 3);
     const sizes = new Float32Array(count);
 
-    // Define star color palettes
+    // Define vibrant star color palettes
     const starTypes = [
       { r: 1.0, g: 1.0, b: 1.0 }, // White
       { r: 1.0, g: 0.9, b: 0.7 }, // Warm white
@@ -26,6 +26,12 @@ export default function SpaceUniverse({
       { r: 1.0, g: 0.8, b: 0.6 }, // Yellow-orange
       { r: 0.8, g: 0.8, b: 1.0 }, // Blue
       { r: 1.0, g: 0.6, b: 0.4 }, // Orange-red
+      { r: 1.0, g: 0.2, b: 0.8 }, // Magenta
+      { r: 0.2, g: 1.0, b: 0.8 }, // Cyan
+      { r: 0.8, g: 1.0, b: 0.2 }, // Lime
+      { r: 1.0, g: 0.4, b: 0.2 }, // Red-orange
+      { r: 0.6, g: 0.2, b: 1.0 }, // Purple
+      { r: 0.2, g: 0.8, b: 1.0 }, // Light blue
     ];
 
     for (let i = 0; i < count; i++) {
@@ -37,17 +43,17 @@ export default function SpaceUniverse({
       positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
       positions[i * 3 + 2] = radius * Math.cos(phi);
 
-      // Random star type and intensity
+      // Random star type and intensity with more vibrant colors
       const starType = starTypes[Math.floor(Math.random() * starTypes.length)];
-      const intensity = Math.random() * 0.6 + 0.4;
-      const brightness = Math.random() * 0.8 + 0.2;
+      const intensity = Math.random() * 0.8 + 0.7; // Higher intensity for more vibrant colors
+      const brightness = Math.random() * 0.5 + 0.8; // Higher brightness
 
       colors[i * 3] = starType.r * intensity * brightness;
       colors[i * 3 + 1] = starType.g * intensity * brightness;
       colors[i * 3 + 2] = starType.b * intensity * brightness;
 
-      // Varied star sizes (some bright, some dim)
-      sizes[i] = Math.random() * 1.3 + 0.2;
+      // Smaller star sizes
+      sizes[i] = Math.random() * 0.8 + 0.1;
     }
 
     return [positions, colors, sizes];
@@ -68,10 +74,19 @@ export default function SpaceUniverse({
         0.8 + Math.sin(time * 2) * 0.2;
     }
 
-    // Stop expanding after hero section (when scrollProgress reaches 1)
+    // Smooth expansion that slows down as it approaches the limit
     const maxScale = 15;
-    const scale =
-      scrollProgress >= 1 ? maxScale : 0.3 + scrollProgress * (maxScale - 0.3);
+    const expansionLimit = 0.35; // Expansion slows down and stops around here
+
+    let scale;
+    if (scrollProgress >= expansionLimit) {
+      scale = maxScale;
+    } else {
+      // Use eased scaling that smoothly approaches maxScale
+      const progress = scrollProgress / expansionLimit;
+      const easedProgress = 1 - Math.pow(1 - progress, 3); // Ease-out cubic
+      scale = 0.3 + easedProgress * (maxScale - 0.3);
+    }
 
     ref.current.scale.setScalar(scale);
 
@@ -94,7 +109,7 @@ export default function SpaceUniverse({
       <PointMaterial
         transparent
         vertexColors
-        size={1.5}
+        size={0.8}
         sizeAttenuation
         depthWrite={false}
         alphaTest={0.01}
