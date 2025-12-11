@@ -1,5 +1,5 @@
 interface SectionTitleProps {
-  title: string;
+  title: React.ReactNode;
   subtitle?: string;
   icon: string;
   className?: string;

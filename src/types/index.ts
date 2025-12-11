@@ -12,3 +12,13 @@ export interface Service {
   icon: string;
   description: string;
 }
+
+export interface Project {
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  github?: string;
+  demo?: string;
+  featured?: boolean;
+}
