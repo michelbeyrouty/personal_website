@@ -1,6 +1,6 @@
 "use client";
 
-import ServiceCard from "../../@common/Cards/ServiceCard";
+import ServiceCard from "@common/Cards/ServiceCard";
 import SectionTitle from "@common/SectionTitle";
 import { SERVICES } from "@/constants";
 

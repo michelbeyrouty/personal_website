@@ -1,7 +1,7 @@
-import HeroSection from "@pages/Home/HeroSection";
-import AboutSection from "@pages/Home/AboutSection";
+import HeroSection from "@/components/@pages/Home/Sections/HeroSection";
+import AboutSection from "@pages/Home/Sections/AboutSection";
 import WorkExperienceSection from "@pages/Home/WorkExperienceSection";
-import ProjectsSection from "@pages/Home/ProjectsSection";
+import ProjectsSection from "@/components/@pages/Home/Sections/ProjectsSection";
 import CanvasUniverse from "@/components/@common/Canvas/CanvasUniverse";
 
 export default function HomePage() {
