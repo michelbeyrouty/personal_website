@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Preload } from "@react-three/drei";
 import SpaceUniverse from "../3D/SpaceUniverse";
@@ -14,7 +15,10 @@ export default function CanvasUniverse() {
         camera={{ position: [0, 0, 30], fov: 75 }}
         style={{ width: "100%", height: "100%" }}
       >
-        <SpaceUniverse scrollProgress={scrollProgress} />
+        <Suspense fallback={null}>
+          <SpaceUniverse scrollProgress={scrollProgress} />
+        </Suspense>
+
         <Preload all />
       </Canvas>
     </div>
