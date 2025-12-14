@@ -47,7 +47,7 @@ export const PROJECTS: Project[] = [
     image: "/assets/ProjectImages/full_stack_take_home_26.png",
     technologies: ["React", "Vanilla CSS", "SQLite", "Express", "JavaScript"],
     github: "https://github.com/michelbeyrouty/fullstack_take_home_2025",
-    demo: "https://fullstacktakehome2025.netlify.app/",
+    demo: "https://fullstacktakehome.michelbeyrouty.com/",
     featured: false,
   },
 ];
