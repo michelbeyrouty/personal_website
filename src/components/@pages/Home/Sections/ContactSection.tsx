@@ -110,7 +110,9 @@ export default function ContactSection() {
           </div>
         </motion.div>
 
-        <RocketCanvas />
+        <div className="h-80 md:h-96 lg:h-auto">
+          <RocketCanvas />
+        </div>
       </div>
     </section>
   );
