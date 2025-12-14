@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Michel Beyrouty - Personal Website
 
-## Getting Started
+A modern, interactive personal portfolio built with modern web technologies. Experience space-themed animations, 3D graphics, and seamless user interactions in this cosmic journey through my projects and skills.
 
-First, run the development server:
+## ✨ Features
+
+- **3D Space Universe** - Interactive background with Three.js
+- **Animated 3D Rocket** - Custom rocket model with user controls
+- **Framer Motion** - Smooth, buttery animations throughout
+- **Glass Morphism** - Modern UI with backdrop blur effects
+- **Responsive Design** - Perfect on desktop, tablet, and mobile
+- **Contact Integration** - Direct Calendly booking system
+
+## 🛠️ Tech Stack
+
+- **Frontend:** Next.js 14, React, TypeScript
+- **Styling:** Tailwind CSS
+- **3D Graphics:** Three.js, React Three Fiber
+- **Animations:** Framer Motion
+- **Icons:** React Icons
+- **Deployment:** Vercel
+
+## 🚀 Quick Start
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to explore the universe! ✨
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📦 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/                 # Next.js app directory
+├── components/          # Reusable UI components
+│   ├── @common/        # Shared components
+│   └── @pages/         # Page-specific components
+├── constants/           # App constants and data
+├── hooks/              # Custom React hooks
+└── types/              # TypeScript type definitions
+```
 
-## Learn More
+## 🌟 Highlights
 
-To learn more about Next.js, take a look at the following resources:
+This portfolio showcases modern web development practices with a focus on:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Performance optimization
+- Clean, maintainable code architecture
+- Engaging user experience
+- Responsive design principles
+- Modern animation techniques
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built with ❤️ by Michel Beyrouty | [LinkedIn](https://linkedin.com/in/michelbeyrouty) | [Email](mailto:michelbeyrouty@gmail.com)
