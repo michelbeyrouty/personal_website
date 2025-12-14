@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface WorkExperience {
   title: string;
   company_name: string;
@@ -21,4 +23,9 @@ export interface Project {
   github?: string;
   demo?: string;
   featured?: boolean;
+}
+
+export interface NavLink {
+  link: string;
+  title: string | ReactNode;
 }

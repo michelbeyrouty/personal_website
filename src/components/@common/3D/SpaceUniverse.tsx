@@ -7,8 +7,10 @@ import * as THREE from "three";
 
 export default function SpaceUniverse({
   scrollProgress,
+  isMobile = false,
 }: {
   scrollProgress: number;
+  isMobile?: boolean;
 }) {
   const ref = useRef<THREE.Points>(null);
 
@@ -98,7 +100,8 @@ export default function SpaceUniverse({
         : -50 + scrollProgress * (maxZPosition + 50);
 
     // Position universe below text initially, then move based on scroll
-    const baseYPosition = -15; // Start further below the text
+    // On mobile, start lower to account for the different layout
+    const baseYPosition = isMobile ? -35 : -15; // Start further below on mobile
     const yPosition = baseYPosition + scrollProgress * 10; // Move up slightly as user scrolls
 
     ref.current.position.set(0, yPosition, zPosition);

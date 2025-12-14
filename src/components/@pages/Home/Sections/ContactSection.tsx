@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { IoIosMail } from "react-icons/io";
 import SectionTitle from "@common/SectionTitle";
 import Button from "@common/Buttons/Button";
 import RocketCanvas from "@common/Canvas/RocketCanvas";
@@ -68,7 +69,7 @@ export default function ContactSection() {
                     : "text-gray-300 hover:text-white hover:bg-white/5"
                 }`}
               >
-                <span className="mr-2">💌</span>
+                <span className="mr-2">✉️</span>
                 Send Message
               </button>
               <button
@@ -79,7 +80,7 @@ export default function ContactSection() {
                     : "text-gray-300 hover:text-white hover:bg-white/5"
                 }`}
               >
-                <span className="mr-2">📅</span>
+                <span className="mr-2">🗓️</span>
                 Book Meeting
               </button>
             </div>
@@ -161,7 +162,7 @@ export default function ContactSection() {
                       onClick={handleSubmit}
                       className="w-full"
                     >
-                      Launch Message 🚀
+                      Send Message 🚀
                     </Button>
                   </form>
 
@@ -193,7 +194,7 @@ export default function ContactSection() {
                   </h3>
 
                   <div className="text-center mb-8">
-                    <div className="text-4xl mb-4">📅</div>
+                    <div className="text-4xl mb-4">🗓️</div>
                     <p className="text-gray-300">
                       Schedule a call to discuss your project in detail
                     </p>

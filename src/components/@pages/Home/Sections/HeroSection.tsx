@@ -12,7 +12,7 @@ export default function HeroSection() {
       <motion.div
         className="fixed inset-0 z-20 flex items-start justify-center pt-40"
         animate={{
-          opacity: scrollProgress > 0.2 ? 0 : 1,
+          opacity: scrollProgress > 0.1 ? 0 : 1,
           y: -scrollProgress * 60,
         }}
       >
