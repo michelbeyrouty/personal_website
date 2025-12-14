@@ -24,7 +24,6 @@ export default function ProjectsSection() {
               My <span className="text-blue-400">Projects</span>
             </>
           }
-          subtitle="Things I've built"
           icon="🚀"
           className="mb-16"
         />

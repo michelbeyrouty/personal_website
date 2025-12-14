@@ -14,7 +14,6 @@ export default function WorkExperienceSection() {
               Work <span className="text-blue-400">Experience</span>
             </>
           }
-          subtitle="What I have done so far"
           icon="💼"
           className="mb-16"
         />
