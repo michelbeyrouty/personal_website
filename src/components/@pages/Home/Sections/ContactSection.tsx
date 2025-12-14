@@ -46,7 +46,7 @@ export default function ContactSection() {
                         Quick Consultation
                       </h4>
                       <p className="text-sm text-gray-400">
-                        15 minutes • Perfect for initial discussions
+                        15 minutes • Initial discussions
                       </p>
                     </div>
                     <a
@@ -55,7 +55,7 @@ export default function ContactSection() {
                       rel="noopener noreferrer"
                       className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm"
                     >
-                      Book 15min
+                      Book
                     </a>
                   </div>
                 </div>
@@ -67,7 +67,7 @@ export default function ContactSection() {
                         Project Deep Dive
                       </h4>
                       <p className="text-sm text-gray-400">
-                        45 minutes • Detailed project planning
+                        45 minutes • Project planning
                       </p>
                     </div>
                     <a
@@ -76,7 +76,7 @@ export default function ContactSection() {
                       rel="noopener noreferrer"
                       className="bg-purple-500 hover:bg-purple-600 text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm"
                     >
-                      Book 45min
+                      Book
                     </a>
                   </div>
                 </div>

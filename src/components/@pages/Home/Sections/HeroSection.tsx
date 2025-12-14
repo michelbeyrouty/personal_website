@@ -28,8 +28,8 @@ export default function HeroSection() {
             <Button href="#about" variant="primary">
               Explore More
             </Button>
-            <Button href="#work" variant="secondary">
-              View Galaxy
+            <Button href="#experience" variant="secondary">
+              View Experience
             </Button>
           </div>
         </div>
