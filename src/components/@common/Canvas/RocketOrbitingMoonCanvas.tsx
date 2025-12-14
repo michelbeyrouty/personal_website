@@ -2,11 +2,10 @@ import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
-export default function RocketCanvas() {
+export default function RocketOrbitingMoonCanvas() {
   return (
     <Canvas
       shadows
-      frameloop="demand"
       dpr={[1, 2]}
       gl={{ preserveDrawingBuffer: true }}
       camera={{
@@ -15,6 +14,7 @@ export default function RocketCanvas() {
         far: 200,
         position: [-4, 3, 6],
       }}
+      className="z-100"
     >
       <Suspense fallback={null}>
         <OrbitControls
@@ -23,21 +23,20 @@ export default function RocketCanvas() {
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
-        <RocketScene />
-
+        <RocketOrbitingMoon />
         <Preload all />
       </Suspense>
     </Canvas>
   );
 }
 
-function RocketScene() {
-  const earth = useGLTF("./assets/rocketOrbitingMoon/scene.gltf");
+function RocketOrbitingMoon() {
+  const rocketOrbitingMoon = useGLTF("./assets/rocketOrbitingMoon/scene.gltf");
 
   return (
     <primitive
-      object={earth.scene}
-      scale={0.01}
+      object={rocketOrbitingMoon.scene}
+      scale={0.013}
       position-y={0.5}
       rotation-y={0}
     />

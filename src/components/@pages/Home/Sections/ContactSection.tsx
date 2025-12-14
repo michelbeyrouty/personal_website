@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import SectionTitle from "@common/SectionTitle";
-import RocketCanvas from "@common/Canvas/RocketCanvas";
+import RocketOrbitingMoonCanvas from "@common/Canvas/RocketOrbitingMoonCanvas";
 
 export default function ContactSection() {
   return (
@@ -110,9 +110,7 @@ export default function ContactSection() {
           </div>
         </motion.div>
 
-        <div className="h-80 md:h-96 lg:h-auto">
-          <RocketCanvas />
-        </div>
+        <RocketOrbitingMoonCanvas />
       </div>
     </section>
   );
