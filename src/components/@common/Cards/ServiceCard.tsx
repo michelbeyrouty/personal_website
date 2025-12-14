@@ -4,7 +4,7 @@ import { StaticImageData } from "next/image";
 interface ServiceCardProps {
   index: number;
   title: string;
-  icon: string | StaticImageData;
+  icon: string;
   description?: string;
 }
 
@@ -22,9 +22,9 @@ export default function ServiceCard({
       whileHover={{ y: -10, transition: { duration: 0.3 } }}
       className="group relative"
     >
-      <div className="relative bg-black/20 backdrop-blur-sm border border-blue-500/30 rounded-2xl p-6 h-[320px] flex flex-col text-center hover:border-blue-400/50 transition-all duration-300">
+      <div className="relative bg-black/20 backdrop-blur-sm border border-blue-500/30 rounded-2xl p-6 h-80 flex flex-col text-center hover:border-blue-400/50 transition-all duration-300">
         {/* Glow effect on hover */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-linear-to-br from-blue-500/10 to-purple-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
         <div className="relative z-10 flex flex-col h-full">
           <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-blue-500/20 rounded-full border border-blue-500/30 group-hover:scale-110 transition-transform duration-300">
