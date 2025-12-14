@@ -13,7 +13,7 @@ export default function ContactSection() {
             Contact <span className="text-blue-400">Me</span>
           </>
         }
-        icon="🚀"
+        icon="🗓️"
         className="mb-16"
       />
 
@@ -32,7 +32,6 @@ export default function ContactSection() {
               </h3>
 
               <div className="text-center mb-8">
-                <div className="text-4xl mb-4">🗓️</div>
                 <p className="text-gray-300">
                   Schedule a call to discuss your project in detail
                 </p>
