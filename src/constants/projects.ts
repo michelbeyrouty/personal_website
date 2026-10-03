@@ -50,4 +50,20 @@ export const PROJECTS: Project[] = [
     demo: "https://fullstacktakehome.michelbeyrouty.com/",
     featured: false,
   },
+  {
+    title: "Hustle House Gym Website",
+    description:
+      "A modern local gym landing page for Hustle House, designed to highlight the brand’s atmosphere, coaching expertise, services, trainer lineup.",
+    image: "/assets/ProjectImages/hustle_house_gym.png",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Three.js",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Netlify",
+    ],
+    demo: "https://hustle-house.netlify.app/",
+    featured: false,
+  },
 ];
